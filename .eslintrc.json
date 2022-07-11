@@ -29,8 +29,7 @@
           ["external", "builtin"],
           ["parent", "internal"],
           ["index", "sibling"]
-        ],
-        "newlines-between": "always"
+        ]
       }
     ],
     "import/no-unresolved": "error"
