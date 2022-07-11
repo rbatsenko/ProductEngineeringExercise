@@ -31,7 +31,7 @@ const KanbanPage: FunctionComponent<KanbanPageProps> = ({
       <Head>
         <title>Kanban Board</title>
       </Head>
-      <Layout>
+      <Layout hasSider>
         <Sider>
           <h1 className={styles.menuTitle}>Kanban Board</h1>
           <Menu
