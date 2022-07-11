@@ -1,4 +1,4 @@
-# HeadsUp Product Engineering Exercise 
+# HeadsUp Product Engineering Exercise
 
 This is based on a starter template for [Learn Next.js](https://nextjs.org/learn). You will need to learn and use [React](https://reactjs.org), [Next.js](https://nextjs.org/learn), and [Ant Design](https://ant.design/components/overview/).
 
