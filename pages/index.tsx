@@ -1,10 +1,19 @@
-import axios from "axios";
+import { FunctionComponent } from "react";
+import { GetStaticProps } from "next";
 import { Card, Col, Row } from "antd";
+import axios from "axios";
+
 import "antd/dist/antd.css";
+import { Person, Company } from "@models/data";
 
-const API_URL = process.env.API_URL;
+type KanbanPageProps = { personData: Person[]; companyData: Company[] };
 
-const KanbanPage = ({ personData, companyData }) => {
+const API_URL = process.env.API_URL!;
+
+const KanbanPage: FunctionComponent<KanbanPageProps> = ({
+  personData,
+  companyData,
+}) => {
   console.log(personData);
   console.log(companyData);
 
@@ -49,10 +58,10 @@ const KanbanPage = ({ personData, companyData }) => {
   );
 };
 
-export const getStaticProps = async (_context) => {
+export const getStaticProps: GetStaticProps = async (_context) => {
   const {
     data: { data: personData },
-  } = await axios.get(API_URL, {
+  } = await axios.get<{ data: Person[] }>(API_URL, {
     params: {
       tabId: "person",
     },
@@ -60,7 +69,7 @@ export const getStaticProps = async (_context) => {
 
   const {
     data: { data: companyData },
-  } = await axios.get(API_URL, {
+  } = await axios.get<{ data: Company[] }>(API_URL, {
     params: {
       tabId: "company",
     },
