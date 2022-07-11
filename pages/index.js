@@ -2,8 +2,7 @@ import axios from "axios";
 import { Card, Col, Row } from "antd";
 import "antd/dist/antd.css";
 
-const API_URL =
-  "https://v1.nocodeapi.com/headsup/google_sheets/AgICuFGNAdLNjVaY";
+const API_URL = process.env.API_URL;
 
 const KanbanPage = ({ personData, companyData }) => {
   console.log(personData);
