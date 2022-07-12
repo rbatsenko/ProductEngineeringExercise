@@ -12,9 +12,13 @@ export const getCompanyData = (
       (sum, user) => sum + Number(user.comment_created),
       0
     );
+    const lastSeen = new Date(
+      Math.max(...users.map((user) => new Date(user.last_seen)).map(Number))
+    ).toLocaleDateString();
 
     return {
       ...company,
+      lastSeen,
       totalComments,
       totalUsers: users.length,
       type: BoardType.Company,

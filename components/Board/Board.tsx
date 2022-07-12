@@ -24,6 +24,9 @@ export const Board: FunctionComponent<{
                       <strong>Signed Up:</strong> {company.signed_up}
                     </p>
                     <p>
+                      <strong>Last Seen:</strong> {company.lastSeen}
+                    </p>
+                    <p>
                       <strong>Number of Users:</strong> {company.totalUsers}
                     </p>
                   </Card>
