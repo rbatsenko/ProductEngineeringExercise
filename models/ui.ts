@@ -7,6 +7,7 @@ export type Board = {
 };
 
 export type CompanyItem = Company & {
+  lastSeen: string;
   totalUsers: number;
   totalComments: number;
   type: BoardType;
