@@ -9,18 +9,16 @@ import { getCompanyData } from "@lib/company";
 import { getPersonData, transformPersonDataResponse } from "@lib/person";
 import { fetchCompanies, fetchPersons } from "@lib/api";
 import { menuItems } from "@lib/menu";
-import styles from "./index.module.css";
+import styles from "@styles/index.module.css";
 
-type KanbanPageProps = { personData: PersonItem[]; companyData: CompanyItem[] };
+type BoardsData = { [key in BoardType]: Array<CompanyItem | PersonItem> };
+type KanbanPageProps = { boardsData: BoardsData };
 
 const { Sider, Content } = Layout;
 const { Title } = Typography;
 
-const KanbanPage: FunctionComponent<KanbanPageProps> = ({
-  personData,
-  companyData,
-}) => {
-  const [activeBoard, setActiveBoard] = useState<BoardType>("company");
+const KanbanPage: FunctionComponent<KanbanPageProps> = ({ boardsData }) => {
+  const [activeBoard, setActiveBoard] = useState<BoardType>(BoardType.Company);
 
   const onItemClick: MenuProps["onClick"] = (e) => {
     setActiveBoard(e.key as BoardType);
@@ -52,7 +50,7 @@ const KanbanPage: FunctionComponent<KanbanPageProps> = ({
               <div className="site-card-wrapper">
                 <Board
                   activeBoard={activeBoard}
-                  data={activeBoard === "company" ? companyData : personData}
+                  data={boardsData[activeBoard]}
                 />
               </div>
             </div>
@@ -70,10 +68,14 @@ export const getStaticProps: GetStaticProps = async (_context) => {
   const companies = await fetchCompanies();
   const companyData = getCompanyData(companies, personData);
 
+  const boardsData: BoardsData = {
+    company: companyData,
+    people: personData,
+  };
+
   return {
     props: {
-      personData,
-      companyData,
+      boardsData,
     },
   };
 };

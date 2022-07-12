@@ -4,6 +4,7 @@ import { CompanyItem, PersonItem } from "@models/ui";
 import { BoardType } from "@lib/constants";
 import { isCompaniesData, isPersonsData } from "@lib/guards";
 import { companyColumns, peopleColumns } from "./data";
+import styles from "./board.module.css";
 
 export const Board: FunctionComponent<{
   activeBoard: BoardType;
@@ -17,7 +18,7 @@ export const Board: FunctionComponent<{
             <Col span={8} key={title}>
               <h2>{title}</h2>
               {data.filter(predicate).map((company) => (
-                <div key={company.id} style={{ marginBottom: "16px" }}>
+                <div key={company.id} className={styles.cardWrapper}>
                   <Card title={company.name}>
                     <p>
                       <strong>Signed Up:</strong> {company.signed_up}

@@ -1,10 +1,11 @@
 import { Person } from "@models/data";
 import { PersonItem } from "@models/ui";
+import { BoardType } from "./constants";
 
 export const getPersonData = (persons: Person[]): PersonItem[] =>
   persons.map((person) => ({
     ...person,
-    type: "people",
+    type: BoardType.People,
   }));
 
 export const transformPersonDataResponse = (persons: Person[]): Person[] =>

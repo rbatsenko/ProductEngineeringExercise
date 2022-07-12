@@ -1,6 +1,9 @@
 import { Board } from "@models/ui";
 
-export type BoardType = "company" | "people";
+export enum BoardType {
+  Company = "company",
+  People = "people",
+}
 
 export const boards: Record<BoardType, Board> = {
   company: {

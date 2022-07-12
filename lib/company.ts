@@ -1,5 +1,6 @@
 import { Company, Person } from "@models/data";
 import { CompanyItem } from "@models/ui";
+import { BoardType } from "./constants";
 
 export const getCompanyData = (
   companies: Company[],
@@ -16,6 +17,6 @@ export const getCompanyData = (
       ...company,
       totalComments,
       totalUsers: users.length,
-      type: "company",
+      type: BoardType.Company,
     };
   });
