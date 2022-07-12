@@ -7,6 +7,6 @@ This is based on a starter template for [Learn Next.js](https://nextjs.org/learn
 3. To start the dev server: `yarn run dev`.
 4. Visit [http://localhost:3000](http://localhost:3000).
 
-For exercise instructions, please email us.
+### Notes
 
-Please add any notes to this file.
+[Please see TODO.md](https://github.com/rbatsenko/ProductEngineeringExercise/blob/main/TODO.md)
